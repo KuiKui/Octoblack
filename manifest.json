@@ -1,0 +1,27 @@
+{
+  "name": "Octoblack",
+  "version": "1.0.0",
+  "description": "Removes syntax highlighting in the GitHub diffs",
+  "manifest_version": 2,
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://github.com/*/pull/*",
+      "https://github.com/*/commit/*",
+      "https://github.com/*/compare/*"
+    ],
+    "run_at": "document_end",
+    "css": ["src/css/octoblack.css"],
+    "js": [
+      "src/js/vendor/jquery-1.9.1.min.js",
+      "src/js/octoblack.js"
+    ]
+  }],
+  "web_accessible_resources": [
+    "src/js/vendor/*"
+  ]
+}
